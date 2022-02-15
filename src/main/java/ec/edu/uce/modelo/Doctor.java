@@ -5,13 +5,20 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "doctor")
 public class Doctor {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_doct")
+	@SequenceGenerator(name = "seq_doct", sequenceName = "seq_doct", allocationSize = 1)
 	@Column(name = "doct_id")
 	private Integer id;
 	@Column(name = "doct_cedula")
@@ -94,5 +101,16 @@ public class Doctor {
 	public void setCitas(List<CitaMedica> citas) {
 		this.citas = citas;
 	}
+
+	@Override
+	public String toString() {
+		return "Doctor [id=" + id + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido
+				+ ", fechaNacimiento=" + fechaNacimiento + ", numeroConsultorio=" + numeroConsultorio + ", genero="
+				+ genero + "]";
+	}
+
+	
+	
+	
 
 }

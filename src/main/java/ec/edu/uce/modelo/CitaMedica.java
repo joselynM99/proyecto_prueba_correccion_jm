@@ -5,14 +5,21 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "cita_medica")
 public class CitaMedica {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_cime")
+	@SequenceGenerator(name = "seq_cime", sequenceName = "seq_cime", allocationSize = 1)
 	@Column(name = "cime_id")
 	private Integer id;
 
@@ -114,5 +121,13 @@ public class CitaMedica {
 	public void setDoctor(Doctor doctor) {
 		this.doctor = doctor;
 	}
+
+	@Override
+	public String toString() {
+		return "CitaMedica [id=" + id + ", numero=" + numero + ", fechaCita=" + fechaCita + ", valorCita=" + valorCita
+				+ ", lugar=" + lugar + ", receta=" + receta + ", fechaProximaCita=" + fechaProximaCita + "]";
+	}
+	
+	
 
 }
