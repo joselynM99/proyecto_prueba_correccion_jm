@@ -12,7 +12,7 @@ public interface ICitaMedicaRepo {
 	
 	void eliminarCitaMedica(Integer id); //D
 	
-	
+	CitaMedica buscarPorNumero(String numero);
 	
 	
 

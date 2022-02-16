@@ -60,8 +60,8 @@ public class ProyectoPruebaJmApplication implements CommandLineRunner{
 		p2.setPeso(80.5);
 		p2.setFechaNacimiento(fecha2);
 
-		this.pacienteService.insertarPaciente(p2);
-		this.pacienteService.insertarPaciente(p1);
+//		this.pacienteService.insertarPaciente(p2);
+//		this.pacienteService.insertarPaciente(p1);
 
 		Doctor d1 = new Doctor();
 		d1.setNombre("Patricia");
@@ -79,8 +79,8 @@ public class ProyectoPruebaJmApplication implements CommandLineRunner{
 		d2.setGenero("Masculino");
 		d2.setNumeroConsultorio("50C");
 		
-		this.doctorService.insertarDoctor(d2);
-		this.doctorService.insertarDoctor(d1);
+//		this.doctorService.insertarDoctor(d2);
+//		this.doctorService.insertarDoctor(d1);
 		
 		Doctor d3 = new Doctor();
 		d3.setNombre("Juan");
@@ -91,7 +91,7 @@ public class ProyectoPruebaJmApplication implements CommandLineRunner{
 		d3.setNumeroConsultorio("89L");
 		d3.setId(1);
 		
-		this.doctorService.actualizarDoctor(d3);
+		//this.doctorService.actualizarDoctor(d3);
 		
 		Paciente p3 = new Paciente();
 		p3.setApellido("Moncayo");
@@ -104,10 +104,10 @@ public class ProyectoPruebaJmApplication implements CommandLineRunner{
 		p3.setFechaNacimiento(fecha2);
 		p3.setId(4);
 		
-		this.pacienteService.actualizarPaciente(p3);
+		//this.pacienteService.actualizarPaciente(p3);
 		
-		this.gestorService.agendarCitaMedica("1258P", fecha3, new BigDecimal(20.90) , "Santa Rita", "Perez", "69452HU");
-		
+		//this.gestorService.agendarCitaMedica("12P", fecha3, new BigDecimal(20.90) , "Santa Rita", "Perez", "69452HU");
+		this.gestorService.resultadoCita("12P", "Gripe", "Paracetamol", LocalDateTime.of(2023, Month.DECEMBER, 8, 10, 30));
 		
 	}
 

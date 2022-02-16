@@ -11,5 +11,7 @@ public interface ICitaMedicaService {
 	void actualizarCitaMedica(CitaMedica cita); // U
 
 	void eliminarCitaMedica(Integer id); // D
+	
+	 CitaMedica buscarPorNumero(String numero);
 
 }

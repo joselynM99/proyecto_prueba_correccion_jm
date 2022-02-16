@@ -32,4 +32,9 @@ public class CitaMedicaServiceImpl implements ICitaMedicaService{
 		this.citaRepo.eliminarCitaMedica(id);
 	}
 
+	@Override
+	public CitaMedica buscarPorNumero(String numero) {
+		return this.citaRepo.buscarPorNumero(numero);
+	}
+
 }
