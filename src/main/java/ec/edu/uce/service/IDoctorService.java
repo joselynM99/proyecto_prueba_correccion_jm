@@ -1,7 +1,5 @@
 package ec.edu.uce.service;
 
-import java.util.List;
-
 import ec.edu.uce.modelo.Doctor;
 
 public interface IDoctorService {
@@ -14,6 +12,6 @@ public interface IDoctorService {
 
 	void eliminarDoctor(Integer id); // D
 	
-	Doctor buscarDoctorPorApellido(String apellido);
+	Doctor buscarDoctorPorCedula(String cedula);
 
 }

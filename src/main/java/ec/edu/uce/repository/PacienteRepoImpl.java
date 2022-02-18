@@ -1,5 +1,8 @@
 package ec.edu.uce.repository;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -9,6 +12,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
 import ec.edu.uce.modelo.Paciente;
+import ec.edu.uce.modelo.PacienteSencilla;
 
 @Repository
 @Transactional
@@ -21,7 +25,7 @@ public class PacienteRepoImpl implements IPacienteRepo {
 	@Override
 	public void insertarPaciente(Paciente paciente) {
 		this.entityManager.persist(paciente);
-		LOG.info("Paciente insertado: "+ paciente);
+		LOG.debug("Paciente insertado: "+ paciente);
 
 	}
 
@@ -44,12 +48,26 @@ public class PacienteRepoImpl implements IPacienteRepo {
 	}
 
 	@Override
-	public Paciente buscarPacienteCodigo(String codigo) {
+	public Paciente buscarPacienteCedula(String cedula) {
 		TypedQuery<Paciente> myQuery = this.entityManager
-				.createQuery("SELECT p FROM Paciente p WHERE p.codigoSeguro =: codigo", Paciente.class);
-		myQuery.setParameter("codigo", codigo);
+				.createQuery("SELECT p FROM Paciente p WHERE p.cedula =: cedula", Paciente.class);
+		myQuery.setParameter("cedula", cedula);
 		
 		return myQuery.getSingleResult();
+	}
+	
+	@Override
+	public List<PacienteSencilla> buscarPacientesPotFechaGenero(LocalDateTime fecha, String genero) {
+
+		TypedQuery<PacienteSencilla> myQuery = this.entityManager.createQuery(
+				"SELECT NEW ec.edu.uce.modelo.PacienteSencilla(p.cedula, p.nombre, p.fechaNacimiento, p.genero) FROM Paciente p WHERE p.fechaNacimiento <=: fecha AND p.genero =: genero",
+				PacienteSencilla.class);
+
+		myQuery.setParameter("fecha", fecha);
+		myQuery.setParameter("genero", genero);
+
+		return myQuery.getResultList();
+
 	}
 
 }

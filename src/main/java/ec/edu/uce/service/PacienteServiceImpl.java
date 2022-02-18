@@ -1,14 +1,18 @@
 package ec.edu.uce.service;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ec.edu.uce.modelo.Paciente;
+import ec.edu.uce.modelo.PacienteSencilla;
 import ec.edu.uce.repository.IPacienteRepo;
 
 @Service
-public class PacienteServiceImpl implements IPacienteService{
-	
+public class PacienteServiceImpl implements IPacienteService {
+
 	@Autowired
 	private IPacienteRepo pacienteRepo;
 
@@ -33,10 +37,13 @@ public class PacienteServiceImpl implements IPacienteService{
 	}
 
 	@Override
-	public Paciente buscarPacienteCodigo(String codigo) {
-		return this.pacienteRepo.buscarPacienteCodigo(codigo);
+	public Paciente buscarPacienteCedula(String cedula) {
+		return this.pacienteRepo.buscarPacienteCedula(cedula);
 	}
 
-	
+	@Override
+	public List<PacienteSencilla> buscarPacientesPotFechaGenero(LocalDateTime fecha, String genero) {
+		return this.pacienteRepo.buscarPacientesPotFechaGenero(fecha, genero);
+	}
 
 }

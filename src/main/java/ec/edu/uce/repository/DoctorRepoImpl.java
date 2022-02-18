@@ -1,7 +1,5 @@
 package ec.edu.uce.repository;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -23,7 +21,7 @@ public class DoctorRepoImpl implements IDoctorRepo {
 	@Override
 	public void insertarDoctor(Doctor doctor) {
 		this.entityManager.persist(doctor);
-		LOG.info("Doctor insertado: "+ doctor);
+		LOG.debug("Doctor insertado: " + doctor);
 	}
 
 	@Override
@@ -34,7 +32,7 @@ public class DoctorRepoImpl implements IDoctorRepo {
 	@Override
 	public void actualizarDoctor(Doctor doctor) {
 		this.entityManager.merge(doctor);
-		LOG.info("Doctor actualizado: "+ doctor);
+		LOG.info("Doctor actualizado: " + doctor);
 	}
 
 	@Override
@@ -44,13 +42,12 @@ public class DoctorRepoImpl implements IDoctorRepo {
 	}
 
 	@Override
-	public Doctor buscarDoctorPorApellido(String apellido) {
-		TypedQuery<Doctor> myQuery = this.entityManager
-				.createQuery("SELECT d FROM Doctor d WHERE d.apellido =: apellido", Doctor.class);
-		myQuery.setParameter("apellido", apellido);
-		List<Doctor> lista = myQuery.getResultList();
-		
-		return lista.get(0);
+	public Doctor buscarDoctorPorCedula(String cedula) {
+		TypedQuery<Doctor> myQuery = this.entityManager.createQuery("SELECT d FROM Doctor d WHERE d.cedula =: cedula",
+				Doctor.class);
+		myQuery.setParameter("cedula", cedula);
+
+		return myQuery.getSingleResult();
 
 	}
 

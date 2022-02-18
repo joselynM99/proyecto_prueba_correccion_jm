@@ -21,16 +21,25 @@ public class Doctor {
 	@SequenceGenerator(name = "seq_doct", sequenceName = "seq_doct", allocationSize = 1)
 	@Column(name = "doct_id")
 	private Integer id;
+
 	@Column(name = "doct_cedula")
 	private String cedula;
+
 	@Column(name = "doct_nombre")
 	private String nombre;
+
 	@Column(name = "doct_apellido")
 	private String apellido;
+
 	@Column(name = "doct_fecha_nacimiento")
 	private LocalDateTime fechaNacimiento;
+
 	@Column(name = "doct_numero_consultorio")
 	private String numeroConsultorio;
+
+	@Column(name = "doct_codigo_senescyt")
+	private String codigoSenescyt;
+
 	@Column(name = "doct_genero")
 	private String genero;
 
@@ -102,15 +111,19 @@ public class Doctor {
 		this.citas = citas;
 	}
 
+	public String getCodigoSenescyt() {
+		return codigoSenescyt;
+	}
+
+	public void setCodigoSenescyt(String codigoSenescyt) {
+		this.codigoSenescyt = codigoSenescyt;
+	}
+
 	@Override
 	public String toString() {
 		return "Doctor [id=" + id + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido
-				+ ", fechaNacimiento=" + fechaNacimiento + ", numeroConsultorio=" + numeroConsultorio + ", genero="
-				+ genero + "]";
+				+ ", fechaNacimiento=" + fechaNacimiento + ", numeroConsultorio=" + numeroConsultorio
+				+ ", codigoSenescyt=" + codigoSenescyt + ", genero=" + genero + "]";
 	}
-
-	
-	
-	
 
 }

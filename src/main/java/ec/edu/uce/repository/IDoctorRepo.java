@@ -12,6 +12,6 @@ public interface IDoctorRepo {
 
 	void eliminarDoctor(Integer id); // D
 	
-	Doctor buscarDoctorPorApellido(String apellido);
+	Doctor buscarDoctorPorCedula(String cedula);
 
 }

@@ -35,6 +35,9 @@ public class CitaMedica {
 	@Column(name = "cime_lugar")
 	private String lugar;
 
+	@Column(name = "cime_diagnostico")
+	private String diagnostico;
+
 	@Column(name = "cime_receta")
 	private String receta;
 
@@ -122,12 +125,19 @@ public class CitaMedica {
 		this.doctor = doctor;
 	}
 
+	public String getDiagnostico() {
+		return diagnostico;
+	}
+
+	public void setDiagnostico(String diagnostico) {
+		this.diagnostico = diagnostico;
+	}
+
 	@Override
 	public String toString() {
 		return "CitaMedica [id=" + id + ", numero=" + numero + ", fechaCita=" + fechaCita + ", valorCita=" + valorCita
-				+ ", lugar=" + lugar + ", receta=" + receta + ", fechaProximaCita=" + fechaProximaCita + "]";
+				+ ", lugar=" + lugar + ", diagnostico=" + diagnostico + ", receta=" + receta + ", fechaProximaCita="
+				+ fechaProximaCita + "]";
 	}
-	
-	
 
 }

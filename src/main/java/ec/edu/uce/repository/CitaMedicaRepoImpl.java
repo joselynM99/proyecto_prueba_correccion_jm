@@ -1,5 +1,8 @@
 package ec.edu.uce.repository;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -9,7 +12,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
 import ec.edu.uce.modelo.CitaMedica;
-import ec.edu.uce.modelo.Paciente;
+import ec.edu.uce.modelo.PacienteSencilla;
 
 @Repository
 @Transactional
@@ -22,7 +25,7 @@ public class CitaMedicaRepoImpl implements ICitaMedicaRepo {
 	@Override
 	public void insertarCitaMedica(CitaMedica cita) {
 		this.entityManager.persist(cita);
-		LOG.info("Cita insertada: " + cita);
+		LOG.debug("Cita insertada: " + cita);
 
 	}
 
@@ -52,5 +55,7 @@ public class CitaMedicaRepoImpl implements ICitaMedicaRepo {
 
 		return myQuery.getSingleResult();
 	}
+
+
 
 }

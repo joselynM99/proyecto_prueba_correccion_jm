@@ -36,19 +36,16 @@ public class ProyectoPruebaJmApplication implements CommandLineRunner{
 	
 	@Override
 	public void run(String... args) throws Exception {
-		LocalDateTime fecha1 = LocalDateTime.of(1999, Month.DECEMBER, 8, 10, 30);
-		LocalDateTime fecha2 = LocalDateTime.of(1977, Month.DECEMBER, 8, 10, 30);
-		LocalDateTime fecha3 = LocalDateTime.of(2022, Month.DECEMBER, 8, 10, 30);
 
 		Paciente p1 = new Paciente();
 		p1.setApellido("Almagro");
-		p1.setCedula("1750958874");
-		p1.setCodigoSeguro("58949B");
-		p1.setNombre("Joss");
+		p1.setCedula("17145987548");
+		p1.setCodigoSeguro("5485");
+		p1.setNombre("José");
 		p1.setEstatura(155.30);
 		p1.setGenero("Femenino");
 		p1.setPeso(55.5);
-		p1.setFechaNacimiento(fecha1);
+		p1.setFechaNacimiento(LocalDateTime.of(1999, Month.DECEMBER, 8, 10, 30));
 
 		Paciente p2 = new Paciente();
 		p2.setApellido("Moncayo");
@@ -58,7 +55,7 @@ public class ProyectoPruebaJmApplication implements CommandLineRunner{
 		p2.setEstatura(170.30);
 		p2.setGenero("Masculino");
 		p2.setPeso(80.5);
-		p2.setFechaNacimiento(fecha2);
+		p2.setFechaNacimiento(LocalDateTime.of(1977, Month.JANUARY, 15, 10, 30));
 
 //		this.pacienteService.insertarPaciente(p2);
 //		this.pacienteService.insertarPaciente(p1);
@@ -67,47 +64,27 @@ public class ProyectoPruebaJmApplication implements CommandLineRunner{
 		d1.setNombre("Patricia");
 		d1.setCedula("1784556666");
 		d1.setApellido("Hernandez");
-		d1.setFechaNacimiento(fecha1);
+		d1.setFechaNacimiento(LocalDateTime.of(1975, Month.DECEMBER, 20, 10, 30));
 		d1.setGenero("Femenino");
-		d1.setNumeroConsultorio("50D");
+		d1.setNumeroConsultorio("5023D");
 
 		Doctor d2 = new Doctor();
-		d2.setNombre("Juan");
-		d2.setCedula("1784556666");
+		d2.setNombre("Pedro");
+		d2.setCedula("17509875689");
 		d2.setApellido("Ramirez");
-		d2.setFechaNacimiento(fecha2);
+		d2.setFechaNacimiento(LocalDateTime.of(1980, Month.SEPTEMBER, 8, 10, 30));
 		d2.setGenero("Masculino");
-		d2.setNumeroConsultorio("50C");
+		d2.setNumeroConsultorio("5034C");
 		
+
 //		this.doctorService.insertarDoctor(d2);
 //		this.doctorService.insertarDoctor(d1);
 		
-		Doctor d3 = new Doctor();
-		d3.setNombre("Juan");
-		d3.setCedula("1784556666");
-		d3.setApellido("Perez");
-		d3.setFechaNacimiento(fecha2);
-		d3.setGenero("Masculino");
-		d3.setNumeroConsultorio("89L");
-		d3.setId(1);
+
 		
-		//this.doctorService.actualizarDoctor(d3);
-		
-		Paciente p3 = new Paciente();
-		p3.setApellido("Moncayo");
-		p3.setCedula("17509985874");
-		p3.setCodigoSeguro("58949CF");
-		p3.setNombre("Jorge");
-		p3.setEstatura(170.30);
-		p3.setGenero("Masculino");
-		p3.setPeso(90.5);
-		p3.setFechaNacimiento(fecha2);
-		p3.setId(4);
-		
-		//this.pacienteService.actualizarPaciente(p3);
-		
-		//this.gestorService.agendarCitaMedica("12P", fecha3, new BigDecimal(20.90) , "Santa Rita", "Perez", "69452HU");
+		this.gestorService.agendarCitaMedica("128C", LocalDateTime.of(2021, Month.JANUARY, 15, 10, 30), new BigDecimal(20.90) , "Santa Rita", "17509875689", "17145987548");
 		this.gestorService.resultadoCita("12P", "Gripe", "Paracetamol", LocalDateTime.of(2023, Month.DECEMBER, 8, 10, 30));
+		this.gestorService.reportePacientes(LocalDateTime.now(), "Masculino");
 		
 	}
 

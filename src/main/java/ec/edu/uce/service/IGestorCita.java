@@ -9,5 +9,7 @@ public interface IGestorCita {
 			String apellidoDoctor, String codigoPaciente);
 
 	void resultadoCita(String numero, String diagnostico, String receta, LocalDateTime fechaProxima);
-}
 
+	void reportePacientes(LocalDateTime fecha, String genero);
+
+}

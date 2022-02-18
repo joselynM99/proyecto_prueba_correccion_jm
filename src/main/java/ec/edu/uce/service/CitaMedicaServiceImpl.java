@@ -7,8 +7,8 @@ import ec.edu.uce.modelo.CitaMedica;
 import ec.edu.uce.repository.ICitaMedicaRepo;
 
 @Service
-public class CitaMedicaServiceImpl implements ICitaMedicaService{
-	
+public class CitaMedicaServiceImpl implements ICitaMedicaService {
+
 	@Autowired
 	ICitaMedicaRepo citaRepo;
 
